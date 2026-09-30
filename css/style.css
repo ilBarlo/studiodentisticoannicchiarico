@@ -167,6 +167,8 @@ dd { margin: 0; }
 .js [data-reveal-group].is-visible > :nth-child(6) { transition-delay: 0.4s; }
 .js [data-reveal-group].is-visible > :nth-child(7) { transition-delay: 0.48s; }
 .js [data-reveal-group].is-visible > :nth-child(8) { transition-delay: 0.56s; }
+.js [data-reveal-group].is-visible > :nth-child(9) { transition-delay: 0.64s; }
+.js [data-reveal-group].is-visible > :nth-child(10) { transition-delay: 0.72s; }
 
 /* i numeri del percorso si accendono con la loro voce */
 .js .path-list .path-number {
@@ -271,7 +273,10 @@ dd { margin: 0; }
   text-decoration: none;
   flex-shrink: 0;
 }
-.brand img { height: 50px; width: auto; }
+/* il PNG ha ~19% di margine trasparente sopra e sotto: 64px di box
+   danno ~52px di logo visibile, sempre dentro i 76px della barra */
+.brand img { height: 64px; width: auto; }
+.brand .brand-logo-neg { display: none; }
 
 .brand-name {
   display: grid;
@@ -361,7 +366,7 @@ html.nav-lock body { touch-action: none; }
 @media (max-width: 860px) {
   :root { --header-h: 62px; }
 
-  .brand img { height: 36px; }
+  .brand img { height: 52px; }
   .brand-name { font-size: 0.9rem; }
   .header-cta { display: none; }
   .nav-toggle { display: block; }
@@ -381,8 +386,9 @@ html.nav-lock body { touch-action: none; }
     box-shadow: none;
     transition: background-color 0.2s ease;
   }
-  .site-header.nav-open .brand-name { color: var(--paper); }
-  .site-header.nav-open .brand-name span:last-child { color: var(--mint); }
+  /* logo in negativo quando il menù è aperto */
+  .site-header.nav-open .brand .brand-logo { display: none; }
+  .site-header.nav-open .brand .brand-logo-neg { display: block; }
   .site-header.nav-open .nav-toggle span { background: var(--paper); }
 
   /* pannello a tutto schermo: si apre come un cerchio che parte dal bottone */
@@ -424,9 +430,8 @@ html.nav-lock body { touch-action: none; }
     bottom: 12vh;
     width: min(320px, 70vw);
     aspect-ratio: 1;
-    background: url("../img/logo/marchio.svg") center / contain no-repeat;
-    filter: brightness(0) invert(1);
-    opacity: 0.06;
+    background: url("../img/logo/marchio-bianco.png") center / contain no-repeat;
+    opacity: 0.07;
     pointer-events: none;
   }
 
@@ -1410,6 +1415,9 @@ html.lightbox-open, html.lightbox-open body { overflow: hidden; }
 
 .map-frame {
   position: relative;
+  /* larghezza esplicita: con width auto Chrome trasferirebbe la min-height
+     sulla larghezza tramite aspect-ratio e il riquadro uscirebbe dallo schermo */
+  width: 100%;
   margin-top: var(--space-5);
   aspect-ratio: 16 / 6;
   min-height: 18rem;
@@ -1419,14 +1427,17 @@ html.lightbox-open, html.lightbox-open body { overflow: hidden; }
 }
 .map-frame iframe {
   position: absolute;
-  /* staccata dal bordo arrotondato esattamente del suo raggio: così la
-     curva non taglia mai la barra "Termini / Segnala un errore" di Google,
-     che sta incollata al bordo interno della mappa */
-  inset: var(--r-lg);
-  width: auto;
-  height: auto;
+  /* staccata dal bordo arrotondato: così la curva non taglia la barra
+     "Termini / Segnala un errore" di Google, incollata al bordo della mappa */
+  --map-inset: 8px; /* ≥ 24px·(1−1/√2) ≈ 7px: l'angolo della mappa resta dentro la curva */
+  top: var(--map-inset);
+  left: var(--map-inset);
+  /* l'iframe è un elemento sostituito: con width/height auto non si stira fra
+     gli offset ma torna a 300×150, quindi le misure vanno date esplicite */
+  width: calc(100% - 2 * var(--map-inset));
+  height: calc(100% - 2 * var(--map-inset));
   border: 0;
-  border-radius: 4px;
+  border-radius: calc(var(--r-lg) - var(--map-inset));
 }
 .map-frame .consent-block {
   position: absolute;
@@ -1434,7 +1445,7 @@ html.lightbox-open, html.lightbox-open body { overflow: hidden; }
   border: 0;
   border-radius: 0;
 }
-@media (max-width: 680px) { .map-frame { aspect-ratio: 4 / 3; } }
+@media (max-width: 680px) { .map-frame { aspect-ratio: 4 / 3; min-height: 0; } }
 
 /* ============================================================
    Footer
@@ -1454,7 +1465,7 @@ html.lightbox-open, html.lightbox-open body { overflow: hidden; }
 }
 
 .footer-mark {
-  height: 56px;
+  height: 64px;
   width: auto;
   margin-bottom: 1.1rem;
 }

@@ -1,0 +1,16 @@
+STUDIO DENTISTICO ANNICCHIARICO - LOGO FINALE (dal file inviato dal cliente)
+============================================================================
+Origine: JPEG 1254x1254 ricevuto via WhatsApp. Il logo e' stato scontornato in maschera alfa
+e ricolorato con il suo blu esatto (#385978). Fondo originale: crema #FDFAF5.
+
+File (PNG con trasparenza)
+  logo-orizzontale-blu.png       marchio a sinistra, scritte a destra, blu su trasparente (header sito)
+  logo-orizzontale-bianco.png    stessa impaginazione in negativo, bianco (menu aperto, footer)
+  marchio-blu.png / marchio-bianco.png    solo dente e sorriso
+  scritte-blu.png / scritte-bianco.png    solo ANNICCHIARICO + STUDIO DENTISTICO + riga
+  favicon-512.png                marchio su quadrato bianco arrotondato
+  anteprima-*.png                come appare su crema, su blu, su scuro
+
+LIMITE: e' un raster (max 1304 px di larghezza). Va bene per web e stampe piccole.
+Per insegna, vetrofanie o stampa grande serve il file vettoriale (SVG, PDF o AI) da chi ha
+disegnato il logo: chiedetelo, altrimenti a grandi dimensioni i bordi risultano sfocati.
