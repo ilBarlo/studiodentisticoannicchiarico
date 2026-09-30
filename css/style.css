@@ -1419,10 +1419,14 @@ html.lightbox-open, html.lightbox-open body { overflow: hidden; }
 }
 .map-frame iframe {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  /* staccata dal bordo arrotondato esattamente del suo raggio: così la
+     curva non taglia mai la barra "Termini / Segnala un errore" di Google,
+     che sta incollata al bordo interno della mappa */
+  inset: var(--r-lg);
+  width: auto;
+  height: auto;
   border: 0;
+  border-radius: 4px;
 }
 .map-frame .consent-block {
   position: absolute;
