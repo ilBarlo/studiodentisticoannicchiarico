@@ -69,6 +69,9 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  /* niente rimbalzo/scorrimento laterale: solo su e giù, come un contenuto fisso */
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
 }
 
 body {
@@ -79,6 +82,9 @@ body {
   color: var(--ink);
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+  touch-action: pan-y pinch-zoom;
 }
 
 img { max-width: 100%; display: block; }
@@ -265,7 +271,7 @@ dd { margin: 0; }
   text-decoration: none;
   flex-shrink: 0;
 }
-.brand img { height: 44px; width: auto; }
+.brand img { height: 50px; width: auto; }
 
 .brand-name {
   display: grid;
@@ -648,7 +654,11 @@ html.nav-lock body { touch-action: none; }
   border-radius: var(--r-pill);
   font-size: var(--t-xs);
   color: var(--ink-soft);
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease;
 }
+.hero-badge:hover { border-color: var(--teal); }
 .hero-badge img { height: 22px; width: auto; }
 .hero-badge span { padding-inline-start: 0.9rem; border-inline-start: 1px solid var(--line); }
 
@@ -1274,6 +1284,16 @@ html.lightbox-open, html.lightbox-open body { overflow: hidden; }
 }
 .contact-details a:hover { text-decoration-color: currentColor; }
 
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none !important;
+}
+.icon-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+.icon-link span { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
+.icon-link:hover span { text-decoration-color: currentColor; }
+
 .contact-form {
   display: grid;
   gap: 1.15rem;
@@ -1502,7 +1522,7 @@ a.credit-brand:hover { background: var(--sea); }
   right: 0;
   bottom: 0;
   z-index: 40;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 0.6rem;
   padding: 0.6rem var(--gutter) calc(0.6rem + env(safe-area-inset-bottom));
   background: rgba(255, 255, 255, 0.92);
@@ -1513,7 +1533,36 @@ a.credit-brand:hover { background: var(--sea); }
   transition: transform 0.3s var(--ease);
   animation: barIn 0.5s var(--ease) 0.8s backwards;
 }
-.mobile-bar .btn { min-height: 48px; }
+.mobile-bar .btn { min-height: 48px; padding-inline: 0.5rem; }
+
+/* verde WhatsApp solo qui: è l'unico posto dove il colore stesso
+   serve a far riconoscere il servizio a colpo d'occhio */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: #25d366;
+  color: #fff;
+}
+.btn-whatsapp:hover { background: #1fb958; }
+.btn-whatsapp svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* sotto i 400px, coi 3 bottoni affiancati "WhatsApp" + icona non ci sta:
+   resta solo l'icona, il testo va agli screen reader */
+@media (max-width: 400px) {
+  .mobile-bar .btn-whatsapp span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
 @keyframes barIn {
   from { transform: translateY(110%); }
   to { transform: translateY(0); }
@@ -1607,6 +1656,87 @@ a.credit-brand:hover { background: var(--sea); }
 .thanks p { color: var(--ink-soft); margin-bottom: var(--space-2); }
 .thanks p a { color: var(--teal-text); font-weight: 500; }
 .thanks .btn { margin-top: var(--space-2); }
+
+/* ============================================================
+   Pulsante flottante di contatto rapido — prima versione da provare
+   ============================================================ */
+
+.help-fab {
+  position: fixed;
+  right: var(--space-2);
+  bottom: var(--space-2);
+  z-index: 45; /* sotto il menù mobile (50), sopra la barra fissa (40) */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-1);
+}
+/* su mobile ci sono già Chiama/WhatsApp/Prenota nella barra fissa:
+   il pulsante flottante resta solo su desktop, dove non c'è nulla */
+@media (max-width: 860px) {
+  .help-fab { display: none; }
+}
+
+.help-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.3rem;
+  background: var(--ink);
+  color: #fff;
+  border: 0;
+  border-radius: var(--r-pill);
+  font: inherit;
+  font-size: var(--t-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: background-color 0.2s ease;
+}
+.help-toggle:hover { background: var(--teal-text); }
+.help-toggle svg { width: 20px; height: 20px; flex-shrink: 0; }
+.help-toggle .help-icon-close { display: none; }
+.help-fab.is-open .help-toggle .help-icon-chat { display: none; }
+.help-fab.is-open .help-toggle .help-icon-close { display: block; }
+.help-fab.is-open .help-toggle span { display: none; }
+
+.help-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.5rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg);
+  transform-origin: bottom right;
+  animation: helpMenuIn 0.18s var(--ease);
+}
+.help-menu[hidden] { display: none; }
+@keyframes helpMenuIn {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.help-menu a {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: var(--t-sm);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.help-menu a:hover { background: var(--sea); color: var(--teal-text); }
+.help-menu svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--teal-text); }
+
+@media (prefers-reduced-motion: reduce) {
+  .help-menu { animation: none; }
+}
 
 /* ============================================================
    Consenso cookie

@@ -284,3 +284,36 @@ const header = document.querySelector(".site-header");
     }
   });
 })();
+
+/* ---------------------------------------------------------------
+   Pulsante flottante di contatto rapido
+   --------------------------------------------------------------- */
+
+(function () {
+  const fab = document.getElementById("help-fab");
+  const toggle = fab && fab.querySelector(".help-toggle");
+  const menu = document.getElementById("help-menu");
+  if (!fab || !toggle || !menu) return;
+
+  function setOpen(isOpen) {
+    fab.classList.toggle("is-open", isOpen);
+    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    menu.hidden = !isOpen;
+  }
+
+  toggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    setOpen(!fab.classList.contains("is-open"));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (fab.classList.contains("is-open") && !fab.contains(event.target)) setOpen(false);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && fab.classList.contains("is-open")) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+})();

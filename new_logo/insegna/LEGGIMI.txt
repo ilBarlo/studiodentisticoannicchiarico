@@ -1,0 +1,39 @@
+STUDIO DENTISTICO ANNICCHIARICO - FILE PER INSEGNA
+===================================================
+
+Tre impaginazioni, ognuna in positivo (su bianco), negativo (su fondo scuro),
+monocromatico nero e monocromatico bianco (per lettere scatolate, vinile, incisione).
+
+  insegna-1-croce-nella-c-*   croce inserita nell'apertura della C (consigliata)
+  insegna-1-marchio-*         solo il marchio con croce, per insegne a bandiera o totem
+  insegna-2-croce-badge-*     marchio originale + croce su quadrato a destra del nome
+  insegna-3-croce-doppia-*    croce nella C + badge, per insegne molto lunghe
+
+Formati
+  *.svg   vettoriale, testo gia' convertito in tracciati: non servono font
+  pdf/    stesso contenuto in PDF vettoriale
+  png/    anteprime raster a 3x (le versioni "mono-bianco" sono su grigio solo per vederle)
+
+Colori (esadecimale RGB, da convertire in RAL/Pantone dall'insegnista)
+  Teal chiaro (arco della C)        #4CB0B8
+  Teal scuro (croce su bianco)      #39868D
+  Blu-verde profondo (disco, testo) #0F2A2E
+  Menta (croce e sottotitolo su fondo scuro) #5FE3B8
+  Bianco                            #FFFFFF
+
+Caratteri usati nei tracciati: Piazzolla (nome), IBM Plex Sans (sottotitolo).
+
+NOTA IMPORTANTE SULLA CROCE
+La croce rossa su fondo bianco e' un emblema protetto dalle Convenzioni di Ginevra
+e dalla legge italiana (L. 740/1912; L. 335/1998). Studi medici e dentistici privati
+non possono usarla su insegne o materiali. La croce verde e' per convenzione delle
+farmacie. Per questo la croce e' nei colori dello studio (teal o menta): richiama
+l'ambito sanitario senza violare la norma. Non farla stampare in rosso.
+
+Spazio minimo intorno al logo: almeno l'altezza della lettera "A" di Annicchiarico.
+Altezza minima consigliata del marchio su insegna: 25 cm.
+
+DETTAGLIO ROSSO (file insegna-4-* e insegna-5-*)
+Croce BIANCA su fondo ROSSO (#C62828): non e' l'emblema protetto, che e' croce rossa
+su fondo bianco. Se l'insegnista propone di invertire i colori, rifiutare.
+  Rosso                             #C62828

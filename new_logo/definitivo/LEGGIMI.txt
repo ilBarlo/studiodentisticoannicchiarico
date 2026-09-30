@@ -1,0 +1,27 @@
+STUDIO DENTISTICO ANNICCHIARICO - LOGO DEFINITIVO
+==================================================
+Idea: il dente a linea legge come la A (radici = gambe, archetto = traversa);
+il sorriso sotto e' una C ruotata verso l'alto, completata a mezzaluna.
+
+Colori (esadecimale RGB; l'insegnista li converte in RAL/Pantone)
+  Teal scuro (dente, nome)          #38878E
+  Teal chiaro (sorriso, sottotitolo) #4AB1B8
+  Blu-verde profondo (fondo negativo) #0F2A2E
+  Rosso del dettaglio (solo insegna) #C62828
+  Bianco                             #FFFFFF
+Cartella colori-originali/: stessa grafica con i colori del file originale (#39A495, #54EBBB).
+
+File
+  logo-verticale*        impaginazione principale (marchio sopra, nome sotto)
+  logo-orizzontale*      per header, carta intestata, firma email
+  logo-una-riga          spazi stretti
+  marchio*               solo simbolo: icona, favicon, timbro
+  *-negativo             su fondo scuro   *-mono-nero / *-mono-bianco  un colore solo
+  insegna/               varianti per l'insegna, con croce bianca su rosso
+  svg = vettoriale (testo in tracciati, nessun font richiesto); pdf/ = PDF vettoriale; png/ = anteprime 3x
+
+Caratteri nei tracciati: Piazzolla (nome), IBM Plex Sans (sottotitolo).
+Spazio minimo intorno al logo: l'altezza della A di ANNICCHIARICO. Altezza minima del marchio su insegna: 25 cm.
+
+NOTA SULLA CROCE: la croce ROSSA su fondo BIANCO e' emblema protetto (Convenzioni di Ginevra,
+L. 740/1912, L. 335/1998), vietata ai privati. Qui e' BIANCA su fondo ROSSO. Non invertire.
