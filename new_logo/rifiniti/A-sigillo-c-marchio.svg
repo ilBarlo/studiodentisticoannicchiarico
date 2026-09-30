@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="Studio Dentistico Annicchiarico">
+<title>Studio Dentistico Annicchiarico</title>
+
+<path d="M198.02 55.49A100.80 100.80 0 1 0 198.02 200.51" fill="none" stroke="#4CB0B8" stroke-width="22.40" stroke-linecap="round"/><circle cx="128.00" cy="128.00" r="64.96" fill="#0F2A2E"/><path transform="translate(91.60 85.78) scale(0.7280)" d="M50 22C45 10 33 4 22 8C9 13 5 30 9 46C12 58 17 66 19 78C21 92 23 106 30 110C37 114 40 102 42 92C44 82 47 76 50 76C53 76 56 82 58 92C60 102 63 114 70 110C77 106 79 92 81 78C83 66 88 58 91 46C95 30 91 13 78 8C67 4 55 10 50 22Z" fill="#FFFFFF"/>
+</svg>

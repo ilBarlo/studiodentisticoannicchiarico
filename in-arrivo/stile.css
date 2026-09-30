@@ -1,0 +1,110 @@
+:root {
+  --teal: #4cb0b8;
+  --teal-dark: #39868d;
+  --teal-deep: #17393c;
+  --teal-text: #2b6a70;
+  --paper: #f6f9f9;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.25rem;
+  background: var(--paper);
+  color: var(--teal-deep);
+  font: 400 1rem/1.6 'IBM Plex Sans', system-ui, sans-serif;
+  text-align: center;
+}
+
+main {
+  width: 100%;
+  max-width: 30rem;
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.logo { width: min(15rem, 70%); height: auto; margin: 0 auto 2.25rem; display: block; }
+
+h1 {
+  font-family: 'Piazzolla', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 5vw, 2.1rem);
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 2.75rem;
+  height: 2px;
+  margin: 1rem auto 0;
+  background: var(--teal);
+}
+
+p { margin: 0 0 1rem; color: var(--teal-text); }
+
+a { color: var(--teal-dark); }
+
+.contact a { color: var(--teal-deep); font-weight: 500; text-decoration: none; }
+
+.admin {
+  margin-top: 3rem;
+  font-size: 0.875rem;
+  color: var(--teal-text);
+}
+
+form { display: grid; gap: 0.75rem; margin-top: 1.5rem; text-align: left; }
+
+label { font-size: 0.875rem; font-weight: 500; }
+
+input {
+  font: inherit;
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #c6d8d9;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--teal-deep);
+}
+
+input:focus-visible,
+button:focus-visible,
+a:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+button {
+  font: inherit;
+  font-weight: 500;
+  padding: 0.85rem 1rem;
+  border: 0;
+  border-radius: 4px;
+  background: var(--teal-deep);
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover { background: var(--teal-dark); }
+
+.error {
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  border-radius: 4px;
+  background: #fbeaea;
+  color: #8a2c2c;
+  font-size: 0.9rem;
+}
+
+.back { display: inline-block; margin-top: 1.5rem; font-size: 0.875rem; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main { animation: none; }
+}

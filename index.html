@@ -3,21 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Centro Odontoiatrico Annicchiarico, Grottaglie — Implantologia, parodontologia, Invisalign</title>
-<meta name="description" content="Centro Odontoiatrico Annicchiarico a Grottaglie (Taranto): chirurgia orale e implantologia, parodontologia, ortodonzia Invisalign e odontoiatria pediatrica. Diagnosi 3D con TC cone beam e preventivo scritto prima di ogni cura.">
+<title>Studio Dentistico Annicchiarico, Grottaglie — Implantologia, parodontologia, Invisalign</title>
+<meta name="description" content="Studio Dentistico Annicchiarico a Grottaglie (Taranto): chirurgia orale e implantologia, parodontologia, ortodonzia Invisalign e odontoiatria pediatrica. Diagnosi 3D con TC cone beam e preventivo scritto prima di ogni cura.">
 <meta name="theme-color" content="#0f2a2e">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="it_IT">
-<meta property="og:title" content="Centro Odontoiatrico Annicchiarico, Grottaglie">
+<meta property="og:title" content="Studio Dentistico Annicchiarico, Grottaglie">
 <meta property="og:description" content="Chirurgia orale e implantologia, parodontologia, ortodonzia Invisalign e odontoiatria pediatrica. Un piano di cura preciso, spiegato prima di iniziare.">
 <meta property="og:image" content="img/studio/sala-operatoria.jpg">
-<link rel="icon" type="image/png" href="img/favicon-src.png">
+<link rel="icon" href="img/logo/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="img/logo/favicon-32.png">
+<link rel="apple-touch-icon" href="img/logo/apple-touch.png">
 <!-- caratteri ospitati in locale: nessuna richiesta a Google, quindi
      nessun IP dei visitatori trasferito a terzi -->
 <link rel="preload" href="fonts/piazzolla-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/fonts.css?v=5">
-<link rel="stylesheet" href="css/style.css?v=23">
+<link rel="stylesheet" href="css/style.css?v=25">
 <script>document.documentElement.classList.add("js");</script>
 <script defer src="js/script.js?v=21"></script>
 <script defer src="js/cookies.js?v=6"></script>
@@ -25,7 +27,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Dentist",
-  "name": "Centro Odontoiatrico Implantologico Dr. Annicchiarico",
+  "name": "Studio Dentistico Annicchiarico",
+  "alternateName": "Centro Odontoiatrico Implantologico Dr. Annicchiarico",
   "url": "https://studioannicchiarico.it/",
   "telephone": "+393391092569",
   "email": "info@studioannicchiarico.it",
@@ -46,10 +49,10 @@
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="#top" aria-label="Centro Odontoiatrico Annicchiarico, torna in cima">
-      <img src="img/logo-mark-alpha.png" alt="" width="124" height="160">
+    <a class="brand" href="#top" aria-label="Studio Dentistico Annicchiarico, torna in cima">
+      <img src="img/logo/marchio.svg" alt="" width="256" height="256">
       <span class="brand-name">
-        <span>Centro Odontoiatrico</span>
+        <span>Studio Dentistico</span>
         <span>Annicchiarico</span>
       </span>
     </a>
@@ -86,6 +89,13 @@
   <!-- HERO -->
   <section class="hero">
     <div class="wrap hero-inner">
+      <figure class="hero-figure">
+        <picture>
+          <source type="image/webp" srcset="img/team/dr-alice-cutout.webp">
+          <img class="hero-photo" src="img/team/dr-alice-cutout.png" alt="Dr.ssa Alice Annicchiarico" width="461" height="926" fetchpriority="high">
+        </picture>
+      </figure>
+
       <div class="hero-text">
         <h1>Un piano di cura preciso, spiegato prima di iniziare.</h1>
         <p class="hero-lede">A Grottaglie: chirurgia orale e implantologia, parodontologia, ortodonzia Invisalign e cure per i bambini. Diagnosi in 3D con TC cone beam e scanner intraorale, preventivo scritto prima di ogni trattamento.</p>
@@ -107,22 +117,16 @@
             Laser a diodo e airflow
           </li>
         </ul>
-      </div>
-
-      <figure class="hero-figure">
-        <picture>
-          <source media="(max-width: 860px)" type="image/webp" srcset="img/studio/sala-operatoria.webp">
-          <source media="(max-width: 860px)" srcset="img/studio/sala-operatoria.jpg">
-          <source type="image/webp" srcset="img/studio/sala-operatoria-vert.webp">
-          <img class="hero-photo" src="img/studio/originali/sala-operatoria.jpg" alt="Sala operatoria del Centro Odontoiatrico Annicchiarico" width="960" height="1280" fetchpriority="high">
-        </picture>
-        <figcaption class="hero-badge">
+        <p class="hero-badge">
           <img src="img/invisalign-logo.png" alt="Invisalign" width="594" height="157">
           <span>Provider autorizzato</span>
-        </figcaption>
-      </figure>
+        </p>
+      </div>
     </div>
+  </section>
 
+  <!-- scheda pratica: cavalca il bordo tra hero e trattamenti -->
+  <div class="info-strip">
     <div class="wrap">
       <div class="info-card" data-reveal>
         <div class="info-item">
@@ -148,7 +152,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- TRATTAMENTI -->
   <section class="section section-tint" id="trattamenti">
@@ -498,7 +502,7 @@
       <div class="map-frame">
         <iframe
           data-consent-src="https://maps.google.com/maps?q=Centro+odontoiatrico+Implantologico+Dr.+Annicchiarico%2C+Viale+Ferruccio+Parri%2C+6%2C+74023+Grottaglie+TA&amp;z=17&amp;hl=it&amp;output=embed"
-          title="Mappa del Centro odontoiatrico Implantologico Dr. Annicchiarico, Viale Ferruccio Parri 6, Grottaglie"
+          title="Mappa dello Studio Dentistico Annicchiarico, Viale Ferruccio Parri 6, Grottaglie"
           loading="lazy"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen></iframe>
@@ -515,8 +519,8 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <img src="img/logo-mark-alpha.png" alt="" width="124" height="160" class="footer-mark">
-      <p class="footer-name">Centro Odontoiatrico Implantologico<br>Dr. Annicchiarico</p>
+      <img src="img/logo/marchio-negativo.svg" alt="" width="256" height="256" class="footer-mark">
+      <p class="footer-name">Studio Dentistico<br>Annicchiarico</p>
       <p class="footer-tag">Chirurgia orale e implantologia, parodontologia, ortodonzia Invisalign, odontoiatria pediatrica.</p>
     </div>
     <div class="footer-col">

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Accesso anteprima, Studio Dentistico Annicchiarico</title>
+<link rel="icon" href="/img/logo/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/logo/favicon-32.png">
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/in-arrivo/stile.css">
+</head>
+<body>
+<main>
+  <img class="logo" src="/img/logo/verticale.svg" alt="Studio Dentistico Annicchiarico">
+  <h1>Anteprima riservata</h1>
+  <p>Inserisci la password per vedere il sito.</p>
+  <form method="post" action="/__anteprima">
+    <p class="error" id="errore" role="alert" hidden>Password non corretta. Riprova.</p>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
+    <button type="submit">Entra</button>
+  </form>
+  <a class="back" href="/">Torna indietro</a>
+</main>
+<script>
+  if (new URLSearchParams(location.search).has("errore")) {
+    document.getElementById("errore").hidden = false;
+  }
+</script>
+</body>
+</html>

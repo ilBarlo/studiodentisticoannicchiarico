@@ -1,5 +1,5 @@
 /* ============================================================
-   Centro Odontoiatrico Annicchiarico
+   Studio Dentistico Annicchiarico
    Sistema: clinica luminosa. Due verdi del logo (teal + menta),
    superfici arrotondate con gerarchia di raggi, fotografia grande.
    Il movimento risponde alle azioni; il solo ingresso animato è l'hero.
@@ -265,7 +265,7 @@ dd { margin: 0; }
   text-decoration: none;
   flex-shrink: 0;
 }
-.brand img { height: 42px; width: auto; }
+.brand img { height: 44px; width: auto; }
 
 .brand-name {
   display: grid;
@@ -417,8 +417,8 @@ html.nav-lock body { touch-action: none; }
     right: -8vw;
     bottom: 12vh;
     width: min(320px, 70vw);
-    aspect-ratio: 520 / 392;
-    background: url("../img/nav-tooth.png") center / contain no-repeat;
+    aspect-ratio: 1;
+    background: url("../img/logo/marchio.svg") center / contain no-repeat;
     filter: brightness(0) invert(1);
     opacity: 0.06;
     pointer-events: none;
@@ -524,54 +524,85 @@ html.nav-lock body { touch-action: none; }
 }
 
 /* ============================================================
-   Hero: testo a sinistra, foto che sfonda il bordo destro
+   Hero: fascia scura con la dottoressa scontornata a sinistra
+   e il testo a destra. La foto poggia sul bordo inferiore.
    ============================================================ */
 
 .hero {
   position: relative;
-  padding-top: clamp(1.5rem, 3vw, 3rem);
+  isolation: isolate;
   overflow: clip;
+  color: var(--paper);
+  background: linear-gradient(112deg, #0f2a2e 0%, #164448 48%, #2b7d85 100%);
 }
-/* alone di luce menta dietro il testo: decorazione sola dell'hero */
+/* luce menta dietro la figura e velo chiaro in alto a destra */
 .hero::before {
   content: "";
   position: absolute;
   z-index: -1;
-  left: -10vw;
-  top: -20vh;
-  width: 60vw;
-  height: 80vh;
-  background: radial-gradient(closest-side, rgba(95, 227, 184, 0.22), rgba(95, 227, 184, 0));
+  left: -5vw;
+  bottom: -30%;
+  width: 55vw;
+  height: 120%;
+  background: radial-gradient(closest-side, rgba(95, 227, 184, 0.28), rgba(95, 227, 184, 0));
   pointer-events: none;
 }
-.hero { isolation: isolate; }
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -10vw;
+  top: -40%;
+  width: 50vw;
+  height: 100%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
 
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: center;
-  /* la colonna foto arriva al bordo della finestra, il testo resta nel .wrap */
-  max-width: none;
-  padding-inline-start: max(var(--gutter), calc((100% - var(--wrap)) / 2 + var(--gutter)));
-  padding-inline-end: 0;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
 }
 
-.hero-text { padding-block: clamp(1rem, 4vw, 3rem); }
+.hero-figure {
+  margin: 0;
+  align-self: end;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: clamp(480px, 72vh, 680px);
+}
+.hero-figure picture { display: contents; }
+.hero-photo {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 24px 36px rgba(0, 0, 0, 0.35));
+}
+
+.hero-text {
+  align-self: center;
+  padding-block: clamp(3rem, 6vw, 5rem) clamp(4rem, 8vw, 6rem);
+}
 
 .hero-text h1 {
   font-size: var(--t-h1);
   line-height: 1.04;
   letter-spacing: -0.022em;
-  max-width: 14ch;
+  max-width: 15ch;
+  color: var(--paper);
 }
 
 .hero-lede {
   margin-top: var(--space-3);
-  max-width: 46ch;
+  max-width: 48ch;
   font-size: var(--t-lg);
   line-height: 1.55;
-  color: var(--ink-soft);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .hero-actions {
@@ -580,6 +611,10 @@ html.nav-lock body { touch-action: none; }
   margin-top: var(--space-4);
   flex-wrap: wrap;
 }
+.hero .btn-primary { background: var(--mint); color: var(--ink); box-shadow: none; }
+.hero .btn-primary:hover { background: #7cead0; box-shadow: 0 12px 28px -14px var(--mint); }
+.hero .btn-ghost { color: var(--paper); border-color: rgba(255, 255, 255, 0.4); }
+.hero .btn-ghost:hover { border-color: var(--paper); }
 
 .hero-proof {
   display: flex;
@@ -587,7 +622,7 @@ html.nav-lock body { touch-action: none; }
   gap: 0.6rem 1.5rem;
   margin-top: var(--space-4);
   font-size: var(--t-sm);
-  color: var(--ink-soft);
+  color: rgba(255, 255, 255, 0.88);
 }
 .hero-proof li { display: inline-flex; align-items: center; gap: 0.5rem; }
 .hero-proof svg {
@@ -595,43 +630,22 @@ html.nav-lock body { touch-action: none; }
   height: 20px;
   padding: 3px;
   fill: none;
-  stroke: var(--teal-text);
+  stroke: var(--mint);
   stroke-width: 2.4;
   stroke-linecap: round;
   stroke-linejoin: round;
-  background: var(--mint-soft);
+  background: rgba(95, 227, 184, 0.18);
   border-radius: var(--r-pill);
-}
-
-.hero-figure {
-  position: relative;
-  margin: 0;
-  height: clamp(520px, 78vh, 740px);
-}
-
-.hero-figure picture, .hero-photo {
-  width: 100%;
-  height: 100%;
-}
-.hero-photo {
-  object-fit: cover;
-  object-position: 55% 50%;
-  border-radius: var(--r-lg) 0 0 var(--r-lg);
 }
 
 .hero-badge {
-  position: absolute;
-  left: clamp(1rem, 3vw, 2rem);
-  bottom: clamp(1rem, 3vw, 2rem);
   display: inline-flex;
   align-items: center;
   gap: 0.9rem;
-  padding: 0.7rem 1.1rem 0.7rem 0.9rem;
-  background: rgba(255, 255, 255, 0.92);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  margin-top: var(--space-3);
+  padding: 0.6rem 1.1rem 0.6rem 0.9rem;
+  background: var(--paper);
   border-radius: var(--r-pill);
-  box-shadow: var(--shadow-sm);
   font-size: var(--t-xs);
   color: var(--ink-soft);
 }
@@ -644,21 +658,30 @@ html.nav-lock body { touch-action: none; }
 .hero-lede { animation-delay: 0.15s; }
 .hero-actions { animation-delay: 0.25s; }
 .hero-proof { animation-delay: 0.35s; }
-.hero-figure { animation: heroPhotoIn 0.9s var(--ease) 0.1s both; }
-.hero-badge { animation: heroRise 0.6s var(--ease) 0.6s both; }
+.hero-badge { animation-delay: 0.45s; }
+.hero-figure { animation: heroPhotoIn 0.9s var(--ease) 0.15s both; }
 
 @keyframes heroRise {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: none; }
 }
 @keyframes heroPhotoIn {
-  from { opacity: 0; transform: translateX(24px) scale(1.02); }
+  from { opacity: 0; transform: translateY(28px); }
   to { opacity: 1; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-text > *, .hero-figure, .hero-badge { animation: none; opacity: 1; transform: none; }
+  .hero-text > *, .hero-figure { animation: none; opacity: 1; transform: none; }
 }
+
+/* fascia con la scheda pratica: fondo della sezione seguente, scheda che
+   sale dentro l'hero */
+.info-strip { background: var(--sea); }
+.info-strip .info-card {
+  margin-top: calc(-1 * clamp(2.5rem, 5vw, 3.5rem));
+  margin-bottom: 0;
+}
+.info-strip + .section-tint { padding-top: calc(var(--section-pad) * 0.75); }
 
 /* scheda pratica: orari, telefono, indirizzo. Cavalca il confine con la sezione dopo */
 .info-card {
@@ -667,8 +690,6 @@ html.nav-lock body { touch-action: none; }
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-3);
-  margin-top: clamp(2rem, 4vw, 3.5rem);
-  margin-bottom: calc(-1 * var(--space-5));
   padding: clamp(1.4rem, 3vw, 2rem) clamp(1.4rem, 3vw, 2.25rem);
   background: var(--paper);
   border: 1px solid var(--line);
@@ -717,25 +738,20 @@ html.nav-lock body { touch-action: none; }
 .info-item a:hover { text-decoration-color: currentColor; }
 
 @media (max-width: 1000px) {
-  .hero-text h1 { max-width: 16ch; }
-  .hero-figure { height: clamp(460px, 70vh, 620px); }
+  .hero-inner { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+  .hero-figure { height: clamp(440px, 64vh, 560px); }
+  .hero-text h1 { max-width: none; }
 }
 
 @media (max-width: 860px) {
-  .hero { padding-top: var(--space-2); }
-  .hero-inner {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
-    padding-inline: var(--gutter);
-  }
-  .hero-figure { order: -1; height: auto; }
-  .hero-figure picture { aspect-ratio: 4 / 3; }
-  .hero-photo { border-radius: var(--r-lg); }
-  .hero-text { padding-block: 0 var(--space-2); }
-  .hero-text h1 { max-width: none; }
-  .hero-badge { left: 1rem; bottom: 1rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 0; }
+  /* su telefono il testo apre, la figura chiude la fascia poggiando sul bordo */
+  .hero-text { order: -1; padding-block: var(--space-4) var(--space-3); }
+  .hero-figure { height: min(82vw, 480px); justify-content: center; }
+  .hero-photo { filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.35)); }
   .hero-actions .btn { flex: 1 1 auto; }
-  .info-card { grid-template-columns: 1fr; gap: var(--space-2); margin-bottom: calc(-1 * var(--space-4)); }
+  .info-card { grid-template-columns: 1fr; gap: var(--space-2); }
+  .info-strip .info-card { margin-top: -1.5rem; }
 }
 
 /* ============================================================
@@ -764,8 +780,6 @@ html.nav-lock body { touch-action: none; }
 }
 .section-dark > * { position: relative; }
 
-/* la scheda pratica entra qui: spazio in più sopra */
-.hero + .section-tint { padding-top: calc(var(--section-pad) + var(--space-4)); }
 
 .section-head {
   max-width: 58ch;
@@ -1416,10 +1430,9 @@ html.lightbox-open, html.lightbox-open body { overflow: hidden; }
 }
 
 .footer-mark {
-  height: 48px;
+  height: 56px;
   width: auto;
   margin-bottom: 1.1rem;
-  filter: brightness(1.35);
 }
 .footer-name {
   font-family: var(--font-display);
