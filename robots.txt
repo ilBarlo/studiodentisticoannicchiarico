@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /in-arrivo/
+Disallow: /grazie.html
+
+Sitemap: https://studiodentisticoannicchiarico.it/sitemap.xml

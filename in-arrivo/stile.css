@@ -1,9 +1,10 @@
 :root {
-  --teal: #4cb0b8;
-  --teal-dark: #39868d;
-  --teal-deep: #17393c;
-  --teal-text: #2b6a70;
-  --paper: #f6f9f9;
+  /* colori del logo: blu #385978 su crema #FDFAF5 */
+  --blu: #385978;
+  --blu-medio: #2c4862;
+  --blu-scuro: #1f3446;
+  --blu-testo: #4a6680;
+  --paper: #fdfaf5;
 }
 
 * { box-sizing: border-box; }
@@ -16,7 +17,7 @@ body {
   place-items: center;
   padding: 2rem 1.25rem;
   background: var(--paper);
-  color: var(--teal-deep);
+  color: var(--blu-scuro);
   font: 400 1rem/1.6 'IBM Plex Sans', system-ui, sans-serif;
   text-align: center;
 }
@@ -27,7 +28,7 @@ main {
   animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-.logo { width: min(15rem, 70%); height: auto; margin: 0 auto 2.25rem; display: block; }
+.logo { width: min(17rem, 75%); height: auto; margin: 0 auto 2.25rem; display: block; }
 
 h1 {
   font-family: 'Piazzolla', Georgia, serif;
@@ -43,19 +44,22 @@ h1::after {
   width: 2.75rem;
   height: 2px;
   margin: 1rem auto 0;
-  background: var(--teal);
+  background: var(--blu);
 }
 
-p { margin: 0 0 1rem; color: var(--teal-text); }
+p { margin: 0 0 1rem; color: var(--blu-testo); }
 
-a { color: var(--teal-dark); }
+a { color: var(--blu-medio); }
 
-.contact a { color: var(--teal-deep); font-weight: 500; text-decoration: none; }
+.contact-sub { font-size: 0.875rem; }
+.contact-sub a { color: inherit; text-decoration: none; }
+
+.contact a { color: var(--blu-scuro); font-weight: 500; text-decoration: none; }
 
 .admin {
   margin-top: 3rem;
   font-size: 0.875rem;
-  color: var(--teal-text);
+  color: var(--blu-testo);
 }
 
 form { display: grid; gap: 0.75rem; margin-top: 1.5rem; text-align: left; }
@@ -66,15 +70,15 @@ input {
   font: inherit;
   width: 100%;
   padding: 0.8rem 0.9rem;
-  border: 1px solid #c6d8d9;
+  border: 1px solid #d3dce5;
   border-radius: 4px;
   background: #fff;
-  color: var(--teal-deep);
+  color: var(--blu-scuro);
 }
 
 input:focus-visible,
 button:focus-visible,
-a:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+a:focus-visible { outline: 2px solid var(--blu); outline-offset: 2px; }
 
 button {
   font: inherit;
@@ -82,12 +86,12 @@ button {
   padding: 0.85rem 1rem;
   border: 0;
   border-radius: 4px;
-  background: var(--teal-deep);
+  background: var(--blu-scuro);
   color: #fff;
   cursor: pointer;
 }
 
-button:hover { background: var(--teal-dark); }
+button:hover { background: var(--blu-medio); }
 
 .error {
   margin: 0;

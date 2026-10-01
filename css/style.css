@@ -822,6 +822,15 @@ html.nav-lock body { touch-action: none; }
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-2);
 }
+/* su 4 colonne l'ultima riga incompleta si centra: griglia a 8 mezze colonne,
+   ogni scheda ne occupa 2 e la prima scheda dell'ultima riga parte più a destra */
+@media (min-width: 1001px) {
+  .treatment-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  .treatment-card { grid-column: span 2; }
+  .treatment-card:nth-child(4n+1):nth-last-child(3) { grid-column: 2 / span 2; }
+  .treatment-card:nth-child(4n+1):nth-last-child(2) { grid-column: 3 / span 2; }
+  .treatment-card:nth-child(4n+1):last-child { grid-column: 4 / span 2; }
+}
 
 .treatment-card {
   display: flex;

@@ -58,5 +58,6 @@ export default async (request, context) => {
 
 export const config = {
   path: "/*",
-  excludedPath: ["/in-arrivo/*", "/css/fonts.css", "/fonts/*", "/img/logo/*"],
+  // robots.txt e sitemap.xml restano leggibili: Search Console li verifica già prima del lancio
+  excludedPath: ["/in-arrivo/*", "/css/fonts.css", "/fonts/*", "/img/logo/*", "/robots.txt", "/sitemap.xml"],
 };
