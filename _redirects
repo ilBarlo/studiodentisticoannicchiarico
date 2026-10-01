@@ -1,0 +1,5 @@
+# L'indirizzo .netlify.app non si può spegnere: lo rimandiamo al dominio ufficiale,
+# così Google e i visitatori vedono un solo sito. Le anteprime dei deploy
+# (deploy-preview-…--studiodentisticoannicchiarico.netlify.app) non sono toccate.
+https://studiodentisticoannicchiarico.netlify.app/*  https://studiodentisticoannicchiarico.it/:splat  301!
+http://studiodentisticoannicchiarico.netlify.app/*   https://studiodentisticoannicchiarico.it/:splat  301!
