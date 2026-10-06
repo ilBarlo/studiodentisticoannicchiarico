@@ -26,7 +26,7 @@ p {{ margin-top: 18px; font-size: 21px; line-height: 1.45; color: #d6e2ea; }}
 </style></head><body>
 <div class="testo">
   <img class="logo" src="file://{ROOT}/new_logo/finale/logo-orizzontale-bianco.png" alt="">
-  <h1>Il tuo piano di trattamento, previsualizzato con l’IA e condiviso con te in tempo reale.</h1>
+  <h1>Il tuo piano di trattamento, previsualizzato e condiviso con te in tempo reale.</h1>
   <p>Chirurgia e implantologia, parodontologia, ortodonzia Invisalign e cure per i bambini.</p>
   <p class="luogo">GROTTAGLIE (TA)</p>
 </div>

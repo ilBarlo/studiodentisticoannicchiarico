@@ -598,8 +598,24 @@ html.nav-lock body { touch-action: none; }
 }
 
 .hero-text {
+  position: relative;
+  isolation: isolate;
   align-self: center;
   padding-block: clamp(3rem, 6vw, 5rem) clamp(4rem, 8vw, 6rem);
+}
+/* filigrana: il dente del logo, grande e appena visibile dietro il testo */
+.hero-text::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: -6%;
+  width: min(34rem, 92%);
+  aspect-ratio: 404 / 343;
+  transform: translateY(-52%);
+  background: url("../img/logo/marchio-bianco.png") center / contain no-repeat;
+  opacity: 0.07;
+  pointer-events: none;
 }
 
 .hero-text h1 {
@@ -769,6 +785,7 @@ html.nav-lock body { touch-action: none; }
   .hero-inner { grid-template-columns: 1fr; gap: 0; }
   /* su telefono il testo apre, la figura chiude la fascia poggiando sul bordo */
   .hero-text { order: -1; padding-block: var(--space-4) var(--space-3); }
+  .hero-text::before { top: 0; right: 50%; width: min(26rem, 100%); transform: translate(50%, 6%); opacity: 0.08; }
   .hero-figure { height: min(100vw, 480px); min-height: 0; padding-top: 0; justify-content: center; }
   .hero-photo { filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.35)); }
   .hero-actions .btn { flex: 1 1 auto; }

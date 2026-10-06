@@ -1,7 +1,8 @@
 // Protegge tutto il sito finché è in preparazione.
 // Senza il cookie di anteprima si vede solo /in-arrivo/.
 // Nel codice ci sono solo hash: la password non è nel repository.
-// Per aprire il sito a tutti, cancella questo file (o la cartella netlify/edge-functions).
+// Per aprire il sito a tutti: su Netlify imposta la variabile ANTEPRIMA=off e rifai il deploy,
+// oppure cancella questo file (o la cartella netlify/edge-functions).
 
 const PASSWORD_SHA = "c2740447ad8acb3f09c4a2d31dbc93e22854de87030946bf4a63177c19ae172e";
 const TOKEN_SHA = "1b87e9ed3bd31a1f6ebfa1d3534591a13a9a59e5e52c20dcb274cdf00d4e5e4e";
@@ -30,6 +31,13 @@ function redirect(location, extraHeaders = {}) {
 
 export default async (request, context) => {
   const url = new URL(request.url);
+
+  // interruttore dal pannello Netlify: ANTEPRIMA=off apre il sito a tutti
+  // (dopo aver cambiato la variabile serve un nuovo deploy: Deploys > Trigger deploy)
+  if (String(Netlify.env.get("ANTEPRIMA") || "").toLowerCase() === "off") {
+    if (url.pathname === LOGIN_PATH) return redirect("/");
+    return context.next();
+  }
 
   if (url.pathname === LOGIN_PATH) {
     if (request.method !== "POST") return redirect("/in-arrivo/accesso.html");
