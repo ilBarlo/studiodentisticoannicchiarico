@@ -1,0 +1,27 @@
+MODELLI POST - STUDIO DENTISTICO ANNICCHIARICO
+==============================================
+Sfondi vuoti con il logo dello studio, pronti da completare in Canva o su Instagram.
+
+Formati
+  post/       1080 x 1350  post verticale del feed (consigliato)
+  quadrato/   1080 x 1080  post quadrato
+  storia/     1080 x 1920  storie e reel; il logo è sotto la barra del profilo
+
+Colori
+  blu          sfondo #385978   logo bianco
+  blu-notte    sfondo #1F3446   logo bianco
+  crema        sfondo #FDFAF5   logo blu
+  bianco       sfondo #FFFFFF   logo blu
+  azzurro      sfondo #E7EEF5   logo blu
+  menta        sfondo #DFF3EE   logo blu
+
+Colori per testi e dettagli
+  Blu del logo     #385978   titoli su sfondi chiari
+  Menta            #7ED6C4   piccoli titoli e dettagli su sfondi blu
+  Crema            #FDFAF5   testi su sfondi blu
+  Caratteri del sito: Piazzolla (titoli) e IBM Plex Sans (testi), entrambi gratuiti su Google Fonts e in Canva.
+
+loghi/  loghi su fondo trasparente, per impaginare da zero.
+
+Come usarli in Canva: Crea un design > Importa file > scegli il modello, poi aggiungi testi e foto sopra.
+Nelle storie lasciate libera la parte bassa (circa 250 px): lì Instagram mette "Invia messaggio".

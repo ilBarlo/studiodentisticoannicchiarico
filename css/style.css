@@ -1035,7 +1035,15 @@ html.nav-lock body { touch-action: none; }
   gap: var(--space-3);
 }
 
+/* righe condivise tra le due schede (subgrid): nome, specializzazioni e formazione
+   partono alla stessa altezza anche se i contenuti hanno lunghezze diverse */
 .team-card {
+  display: grid;
+  grid-row: span 6;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  align-content: start;
+  justify-items: start;
   padding: clamp(1.5rem, 3vw, 2.25rem);
   background: var(--paper);
   border: 1px solid var(--line);
@@ -1081,6 +1089,35 @@ html.nav-lock body { touch-action: none; }
   background: var(--sea);
   border-radius: var(--r-pill);
 }
+
+/* formazione: elenco sotto le specializzazioni, parte alla stessa altezza nelle due schede */
+.team-card .chip-list { align-self: start; margin-bottom: 1.75rem; }
+.team-sub {
+  justify-self: stretch;
+  margin: 0 0 0.9rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-text);
+}
+.edu-list { justify-self: stretch; align-self: start; list-style: none; display: grid; gap: 0.75rem; }
+.edu-list li { position: relative; padding-left: 1.1rem; font-size: var(--t-sm); line-height: 1.45; }
+.edu-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+.edu-list strong { display: block; font-weight: 500; color: var(--ink); }
+.edu-list span { display: block; font-size: var(--t-xs); color: var(--ink-soft); }
 
 @media (max-width: 760px) { .team-grid { grid-template-columns: 1fr; } }
 
